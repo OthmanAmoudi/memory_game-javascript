@@ -1,0 +1,236 @@
+$myRED: #ff5f56;
+$myBLACK: #282a36;
+$myGREEN: #27c93f;
+$myYELLOW: #ffbe2e;
+$myDarkBlue: #2a334c;
+
+* {
+  box-sizing:border-box;
+  text-transform:capitalize;
+  font-family: 'Ubuntu', sans-serif;
+  outline:none;
+
+}
+
+body{
+  // overflow:hidden;
+  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+  height:85vh;
+  &::after {
+  content: "";
+  background: url('https://svgshare.com/i/7cp.svg');
+  opacity: 0.1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+
+// -webkit-animation: rotate 25s infinite linear alternate;
+//   -moz-animation-name: rotate 25s infinite linear alternate;
+// overflow:hidden;
+}
+}
+
+
+@-webkit-keyframes rotate {
+  from {-webkit-transform:rotate(0deg);}
+  to {  -webkit-transform:rotate(8deg);}
+}
+
+@-moz-keyframes rotate {
+  from {-moz-transform:rotate(0deg);}
+  to {  -moz-transform:rotate(8deg);}
+}
+
+
+.carbon {
+  background: $myDarkBlue;
+  border-radius:4px;
+  padding: 10px 30px 10px 30px;
+  width: 50%;
+  height:50%;
+  margin: 70px auto;
+  transition: all 2s ease-out;
+  &:hover{
+    width: 70%;
+    height:70%;
+  }
+  // box-shadow: 20px 0x $myBLACK;
+}
+
+.panel {
+  background-color: $myBLACK;
+  padding-left: 10px;
+  border-radius: 10px;
+  margin: 15px 0;
+  .circle{
+    border-radius: 50%;
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+  }
+
+  &__one{
+    background-color: $myRED;
+  }
+  &__two{
+    background-color:$myYELLOW;
+  }
+  &__three{
+    background-color:$myGREEN;
+    position:relative;
+    & > input {
+      position:absolute;
+      top:-2px;
+      left:-2px;
+      opacity:0.2;
+          &:hover{
+          cursor: pointer;
+          }
+
+    }
+  }
+}
+
+//no pranet selector in CSS :(
+// input[class=toggler3]:checked body {
+//   width:0;
+// }
+// .form {
+//   background-color:$myBLACK;
+//   border-radius:10px;
+//   // border: 1px solid blue;
+//   padding: 15px;
+//   font-size: 10px;
+//   margin-bottom:20px;
+//   -webkit-box-shadow: -1px 7px 25px 0px rgba(0,0,0,0.75);
+// -moz-box-shadow: -1px 7px 25px 0px rgba(0,0,0,0.75);
+// box-shadow: -1px 7px 25px 0px rgba(0,0,0,0.75);
+//   input,button {
+//     background-color: #2a334c;
+//     width: 85%;
+//     border: none;
+//     height: 40px;
+//     color: white;
+//     &::focus {
+//       outline:0;
+//     }
+//   }
+//    button {
+//      display: block;
+//      margin: 35px auto 0 auto;
+//      height: 50px;
+//      width:95%;
+//      border-radius: 10px;
+//      color:wheat;
+//      &:hover {
+//     background-color: $myYELLOW;
+//     color: white;
+//   cursor:pointer;
+// }
+//    }
+//   &__group {
+//     // border: 1px solid black;
+//     padding: 5px 5px;
+//     background-color: $myDarkBlue;
+//     position: relative;
+//     margin: 25px auto;
+//      & input {
+//        display: block;
+//        margin: 5px auto;
+//     }
+//     &::after, &::before{
+//       content: '';
+//       position: absolute;
+//       display: inline-block;
+//       width: 0;
+//       height: 0;
+//     }
+
+//     &::after {
+//        left: 0%;
+//        top: 0%;
+// 	     border-top: 30px solid transparent;
+// 	     border-right: 30px solid transparent;
+//        border-color: $myBLACK transparent;
+//     }
+
+//     &::before {
+//         bottom: 0;
+//         right: 0;
+//       	width: 0;
+// 	      height: 0;
+// 	      border-bottom: 30px solid red;
+// 	      border-left: 30px solid transparent;
+//         border-color: $myBLACK transparent;
+//     }
+//   }
+// }
+
+// ::-webkit-input-placeholder {
+//     /* Chrome/Opera/Safari */
+//      color: rgba(255, 255, 255, 0.50);
+// }
+//  ::-moz-placeholder {
+//     /* Firefox 19+ */
+//      color: rgba(255, 255, 255, 0.50);
+// }
+//  :-ms-input-placeholder {
+//     /* IE 10+ */
+//      color: rgba(255, 255, 255, 0.50);
+// }
+//  :-moz-placeholder {
+//     /* Firefox 18- */
+//      color: rgba(255, 255, 255, 0.50);
+// }
+
+// .message,.title {
+//   text-align:center;
+//   color: rgba(wheat,.4);
+//   a {
+//     color: rgba(#2cb5e8,.6);
+//     text-decoration:none;
+//   }
+// }
+
+// .title{
+//   font-size:25px;
+//   color:wheat;
+//   font-weight:bolder;
+//   font-style:italic;
+// }
+
+// /* onload css */
+
+// #show{
+// display:none;
+//       opacity:0;
+//     top: 10px;
+
+// }
+
+// /* click triggered css */
+// #hide:target {
+//     display:none;
+//     opacity:0;
+//     top: 10px;
+
+// }
+
+// #hide:target + #show{
+//     transition: all 2s ease;
+//     display:block;
+//     opacity:1;
+//     top: 10px;
+
+// }
+
+// #hide:target ~ .form2 > .form1 {
+//     transition:  2s;
+//     opacity: 1;
+//     top: 10px;
+// }
+
+

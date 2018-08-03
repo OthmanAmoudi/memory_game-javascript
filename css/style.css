@@ -1,0 +1,99 @@
+* {
+  box-sizing: border-box;
+  text-transform: capitalize;
+  font-family: 'Ubuntu', sans-serif;
+  outline: none;
+}
+
+body {
+  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+  height: 85vh;
+}
+body::after {
+  content: "";
+  background: url("https://svgshare.com/i/7cp.svg");
+  opacity: 0.1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(8deg);
+  }
+}
+@-moz-keyframes rotate {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(8deg);
+  }
+}
+.carbon {
+  background: #2a334c;
+  border-radius: 4px;
+  padding: 10px 30px 10px 30px;
+  width: 65%;
+  height: 85%;
+  margin: 60px auto 10px auto;
+  transition: all 2s ease-out;
+}
+/* .carbon:hover {
+  width: 70%;
+  height: 70%;
+} */
+
+.tabbar {
+  height: 10%;
+}
+
+.panel {
+  background-color: #282a36;
+  padding-left: 10px;
+  border-radius: 10px;
+  margin: 15px 0;
+}
+.panel .circle {
+  border-radius: 50%;
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+}
+.panel__one {
+  background-color: #ff5f56;
+}
+.panel__two {
+  background-color: #ffbe2e;
+}
+.panel__three {
+  background-color: #27c93f;
+  position: relative;
+}
+.panel__three > input {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  opacity: 0.2;
+}
+.panel__three > input:hover {
+  cursor: pointer;
+}
+
+.form {
+  background-color: #282a36;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 10px;
+  margin-bottom: 20px;
+  -webkit-box-shadow: -1px 7px 25px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 7px 25px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: -1px 7px 25px 0px rgba(0, 0, 0, 0.75);
+}
