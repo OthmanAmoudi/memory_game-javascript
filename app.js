@@ -52,12 +52,14 @@ function compareFlipped(array) {
   }
 
   if (array.length == 2) {
-    // console.log('must check now');
     const card1 = array[0].classList[1];
     const card2 = array[1].classList[1];
     // console.log(cards[card1], cards[card2]);
     if (cards[card1] == card2 || cards[card2] == card1) {
       // console.log('Yay its a match');
+      // array.forEach(el => el.classList.add('matchingcards'));
+      const c1 = document.getElementsByClassName(card1)[0].firstElementChild.classList.add('matchingcards')
+      const c2 = document.getElementsByClassName(card2)[0].firstElementChild.classList.add('matchingcards')
       correct_flips += 1;
       last_flipped = [];
     } else {
@@ -113,6 +115,8 @@ function startGame() {
 }
 
 function gameWonParty(moves) {
+  const audio = new Audio('https://loudlinks.rocks/sounds/mp3/magic.mp3');
+  audio.play();
   alert(`You Won with just ${moves} moves !`);
   //must make this one fancy with canvas
 }
