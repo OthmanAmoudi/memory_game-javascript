@@ -20,13 +20,28 @@ const cards = {
 };
 
 const box = Array.from(document.querySelectorAll('.box'));
+const time = document.querySelector('.time');
+const counter = document.querySelector('.counter');
+const container = document.querySelector('.container');
+
+let correct_flips = 0;
 let last_flipped = [];
+let moves = 0;
+let seconds = 0;
+let minutes = 0;
+let seconds_str = '';
+let minutes_str = '';
+let timer_observer;
+
+container.innerHTML = '';
 
 function flipOnClick(e) {
+  moves++;
+  counter.innerHTML = moves;
   const element = e.target;
   last_flipped.push(element);
   element.classList.add('flipped');
-  console.log(last_flipped.length);
+  // console.log(last_flipped.length);
   compareFlipped(last_flipped);
 }
 
@@ -37,12 +52,13 @@ function compareFlipped(array) {
   }
 
   if (array.length == 2) {
-    console.log('must check now');
+    // console.log('must check now');
     const card1 = array[0].classList[1];
     const card2 = array[1].classList[1];
-    console.log(cards[card1], cards[card2]);
+    // console.log(cards[card1], cards[card2]);
     if (cards[card1] == card2 || cards[card2] == card1) {
-      console.log('Yay its a match');
+      // console.log('Yay its a match');
+      correct_flips += 1;
       last_flipped = [];
     } else {
       setTimeout(() => {
@@ -51,6 +67,54 @@ function compareFlipped(array) {
       }, 700);
     }
   }
+}
+
+function spreadCards(array) {
+  let new_Arr = array.filter(el => array.indexOf(el) % 2 == 0);
+  while (0 < new_Arr.length) {
+    const num = Math.floor(Math.random() * new_Arr.length);
+    const pick = new_Arr[num];
+    container.appendChild(pick);
+    // console.log(container);
+    new_Arr.splice(num, 1);
+  }
+}
+
+function startWatching(seconds, minutes) {
+  timer_observer = setInterval(() => {
+    seconds > 58 ? ((minutes += 1), (seconds = 0)) : (seconds += 1);
+    seconds_str = seconds > 9 ? `${seconds}` : `0${seconds}`;
+    minutes_str = minutes > 9 ? `${minutes}` : `0${minutes}`;
+    time.innerHTML = `${minutes_str}:${seconds_str}`;
+    if (correct_flips >= 9) {
+      clearInterval(timer_observer);
+      gameWonParty(moves);
+      return;
+    }
+    // console.log(minutes, seconds_str);
+  }, 1000);
+}
+
+function startGame() {
+  correct_flips = 0;
+  last_flipped = [];
+  moves = 0;
+  seconds = 0;
+  minutes = 0;
+  seconds_str = '';
+  minutes_str = '';
+  time.innerHTML = 'XX:XX';
+  counter.innerHTML = '0';
+  container.innerHTML = '';
+  box.forEach(el => el.classList.remove('flipped'));
+  clearInterval(timer_observer);
+  spreadCards(box);
+  startWatching(seconds, minutes);
+}
+
+function gameWonParty(moves) {
+  alert(`You Won with just ${moves} moves !`);
+  //must make this one fancy with canvas
 }
 
 box.forEach(el => el.addEventListener('click', flipOnClick));
