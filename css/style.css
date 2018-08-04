@@ -6,17 +6,20 @@
 }
 
 body {
-  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
-  height: 85vh;
+  /* background: red; */
+  background: linear-gradient(190deg, #1fc8db 30%, #2cb5e8 50%);
+  background: -webkit-linear-gradient(190deg, #1fc8db 30%, #2cb5e8 50%);
+  /* height: 85vh; */
 }
 body::after {
-  content: "";
-  background: url("https://svgshare.com/i/7cp.svg");
+  content: '';
+  background: url('https://svgshare.com/i/7cp.svg');
   opacity: 0.1;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
+  /* height: 100vh; */
   position: absolute;
   z-index: -1;
 }
@@ -45,6 +48,7 @@ body::after {
   height: 85%;
   margin: 60px auto 10px auto;
   transition: all 2s ease-out;
+  box-shadow: 2px 4px 24px black;
 }
 /* .carbon:hover {
   width: 70%;
@@ -52,7 +56,9 @@ body::after {
 } */
 
 .tabbar {
-  height: 10%;
+  height: 50px;
+  position: relative;
+  top: 60px;
 }
 
 .panel {
@@ -92,8 +98,76 @@ body::after {
   border-radius: 10px;
   padding: 15px;
   font-size: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
   -webkit-box-shadow: -1px 7px 25px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: -1px 7px 25px 0px rgba(0, 0, 0, 0.75);
   box-shadow: -1px 7px 25px 0px rgba(0, 0, 0, 0.75);
+}
+
+.box {
+  height: 110px;
+  width: 108px;
+  display: inline-block;
+  margin: 6px;
+  background: #282a36;
+  /* border-top: 1px solid hsl(0, 100%, 50%); */
+  /* border-bottom: 1px solid hsl(220, 100%, 50%); */
+  border-left: 1px solid hsl(220, 100%, 50%);
+  border: 5px solid hsl(220, 100%, 50%);
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  /* border-radius: 5px; */
+  animation: rainbow 5s infinite alternate;
+  -ms-animation: rainbow 5s infinite alternate;
+  -moz-animation: rainbow 5s infinite alternate;
+  -webkit-animation: rainbow 5s infinite alternate;
+  transition: all 0.7s ease-in-out;
+  position: relative;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  cursor: pointer;
+  box-shadow: 3px 4px 22px 2px black;
+}
+
+@keyframes rainbow {
+  0% {
+    border-color: hsla(343, 86%, 62%, 0.3);
+  }
+  100% {
+    border-color: hsla(211, 99%, 40%, 0.3);
+  }
+}
+
+@-webkit-keyframes rainbow {
+  0% {
+    border-color: hsl(0, 100%, 50%, 0.3);
+  }
+  100% {
+    border-color: hsl(255, 100%, 50%, 0.3);
+  }
+}
+
+.backside {
+  padding: 5px;
+  margin: 0;
+  transform: rotateY(180deg);
+  background: rgb(245, 203, 19);
+  overflow: hidden;
+  position: relative;
+}
+
+.backside > i {
+  position: absolute;
+  font-size: 55px;
+  top: 0;
+  left: 0;
+  transform: translate(27px, 30px);
+  /* color: snow; */
+  /* border: 1px solid white; */
+}
+.flipped,
+.backside {
+  transform: rotateY(180deg);
+  border-color: transparent;
+  border: none;
 }
